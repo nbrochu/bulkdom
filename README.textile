@@ -8,7 +8,7 @@ An efficient domain name availability bulk checker.
 
 h2. Description
 
-Bulkdom is an efficient domain name availability bulk checker that looks for the presence of DNS Records before querying the Whois Server to save on requests and lower the chance of temporarily getting IP banned. Multiple TLDs can be checked at the same time and available results It was extracted out of the awesome and upcoming domain name generator over at "DomainWhirl":http://domainwhirl.com. 
+Bulkdom is an efficient domain name availability bulk checker that looks for the presence of DNS Records before querying the Whois Server to save on requests and lower the chance of temporarily getting IP banned. Multiple TLDs can be checked at the same time and available results can be returned in a simple array for further processing. It was extracted out of the awesome and upcoming domain name generator over at "DomainWhirl":http://domainwhirl.com. 
 
 Note that you could still technically get IP banned by the Whois Server if you decide to do something stupid like checking 10000 domains at once... Be smart!
 
