@@ -5,13 +5,20 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "bulkdom"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{An efficient domain name availability bulk checker}
+    gem.description = %Q{An efficient domain name availability bulk checker that looks for the presence of DNS Records before querying the Whois Server to save on requests and lower the chance of temporarily getting IP banned.}
     gem.email = "info@nicholasbrochu.com"
     gem.homepage = "http://github.com/nbrochu/bulkdom"
     gem.authors = ["Nicholas Brochu"]
-    gem.add_development_dependency "thoughtbot-shoulda", ">= 0"
-    # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
+    gem.add_development_dependency "whois", ">= 1.5.1"
+    
+    gem.files = [
+        "lib/bulkdom.rb",
+        "lib/bulkdom/domain_list.rb",
+        "LICENSE",
+        "README.rdoc",
+        "VERSION"]
+
   end
   Jeweler::GemcutterTasks.new
 rescue LoadError
