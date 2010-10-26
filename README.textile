@@ -15,37 +15,37 @@ Note that you could still technically get IP banned by the Whois Server if you d
 h2. Installation
 
 <pre>
-	gem install bulkdom
+gem install bulkdom
 </pre>
 
 h2. How to use
 
 <pre>
-	require 'rubygems'
-	require 'bulkdom'
+require 'rubygems'
+require 'bulkdom'
 
-	domains_to_check = %w(github domainwhirl nicholasbrochu githubqwerty56)
+domains_to_check = %w(github domainwhirl nicholasbrochu githubqwerty56)
 
-	@dl = Bulkdom::DomainList.new
+@dl = Bulkdom::DomainList.new
 
-	@dl.list = domains_to_check
-	@dl.tlds = [".com", ".net", ".org"]
+@dl.list = domains_to_check
+@dl.tlds = [".com", ".net", ".org"]
 
-	@dl.process
-	#Let it process for a while... @dl.processed will be set to true when done!
+@dl.process
+#Let it process for a while... @dl.processed will be set to true when done!
 
-	@dl.return_available(".com")
-	@dl.return_available(".net")
+@dl.return_available(".com")
+@dl.return_available(".net")
 </pre>
 
 This is the output you would get in this example:
 
 <pre>
-	ruby-1.8.7-p302 > @dl.return_available(".com")
-	=> ["githubqwerty56.com"]
+ruby-1.8.7-p302 > @dl.return_available(".com")
+=> ["githubqwerty56.com"]
 
-	ruby-1.8.7-p302 > @dl.return_available(".net")
-	=> ["domainwhirl.net", "nicholasbrochu.net", "githubqwerty56.net"] 
+ruby-1.8.7-p302 > @dl.return_available(".net")
+=> ["domainwhirl.net", "nicholasbrochu.net", "githubqwerty56.net"] 
 </pre>
 
 h2. Credits
