@@ -1,0 +1,77 @@
+h1. Bulkdom
+
+"http://github.com/nbrochu/bulkdom":http://github.com/nbrochu/bulkdom
+
+h2. Summary
+
+An efficient domain name availability bulk checker.
+
+h2. Description
+
+Bulkdom is an efficient domain name availability bulk checker that looks for the presence of DNS Records before querying the Whois Server to save on requests and lower the chance of temporarily getting IP banned. Multiple TLDs can be checked at the same time and available results It was extracted out of the awesome and upcoming domain name generator over at "DomainWhirl":http://domainwhirl.com. 
+
+Note that you could still technically get IP banned by the Whois Server if you decide to do something stupid like checking 10000 domains at once... Be smart!
+
+h2. Installation
+
+<pre>
+	gem install bulkdom
+</pre>
+
+h2. How to use
+
+<pre>
+	require 'rubygems'
+	require 'bulkdom'
+
+	domains_to_check = %w(github domainwhirl nicholasbrochu githubqwerty56)
+
+	@dl = Bulkdom::DomainList.new
+
+	@dl.list = domains_to_check
+	@dl.tlds = [".com", ".net", ".org"]
+
+	@dl.process
+	#Let it process for a while... @dl.processed will be set to true when done!
+
+	@dl.return_available(".com")
+	@dl.return_available(".net")
+</pre>
+
+This is the output you would get in this example:
+
+<pre>
+	ruby-1.8.7-p302 > @dl.return_available(".com")
+	=> ["githubqwerty56.com"]
+
+	ruby-1.8.7-p302 > @dl.return_available(".net")
+	=> ["domainwhirl.net", "nicholasbrochu.net", "githubqwerty56.net"] 
+</pre>
+
+h2. Credits
+
+* Simone Carletti for the amazing Ruby Whois library.
+* Whoever is responsible for Resolv in the Ruby STDLIB.
+
+h2. LICENSE
+
+Copyright (c) 2010 - Nicholas Brochu
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
